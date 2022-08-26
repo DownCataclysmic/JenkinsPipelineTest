@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                ssh -i ~/.ssh/id_rsa jenkins@ec2-3-250-3-159.eu-west-1.compute.amazonaws.com << EOF
+                ssh -t ~/.ssh/id_rsa jenkins@ec2-3-250-3-159.eu-west-1.compute.amazonaws.com << EOF
                 git clone https://github.com/DownCataclysmic/JenkinsPipelineTest.git
                 cd JenkinsPipelineTest
                 git checkout development
@@ -24,7 +24,7 @@ pipeline {
             steps {
                 sh '''
                 build_num=${BUILD_NUMBER}
-                ssh -i ~/.ssh/id_rsa jenkins@ec2-3-250-3-159.eu-west-1.compute.amazonaws.com << EOF
+                ssh -t ~/.ssh/id_rsa jenkins@ec2-3-250-3-159.eu-west-1.compute.amazonaws.com << EOF
                 echo '[Unit]
 Description=My SpringBoot App
 [Service]
