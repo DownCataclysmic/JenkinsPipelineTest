@@ -24,7 +24,7 @@ pipeline {
             steps {
                 sh '''
                 build_num=${BUILD_NUMBER}
-                ssh -i ~/.ssh/id_rsa jenkins@35.178.16.249 << EOF
+                ssh -i ~/.ssh/id_rsa jenkins@http://ec2-3-250-3-159.eu-west-1.compute.amazonaws.com/ << EOF
                 echo '[Unit]
 Description=My SpringBoot App
 [Service]
